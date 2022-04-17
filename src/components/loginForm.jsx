@@ -17,11 +17,6 @@ class LoginForm extends Form {
     // errors['username'] = object in state
     // errors.find(e => e.name === 'username') = array in state
 
-    doSubmit = () => {
-        //Call the server
-        console.log("Submitted")
-    }
-
     render() { 
 
         return (

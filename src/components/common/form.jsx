@@ -47,6 +47,10 @@ class Form extends Component {
         this.setState({data, errors})
     }
 
+    doSubmit = () => {
+        //Call the server
+        console.log("Submitted")
+    }
     renderButton(label) {
         return <button disabled={this.validate()} className="btn btn-primary">{label}</button>
     }
