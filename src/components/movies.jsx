@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import MoviesTable from './moviesTable'
 import { getMovies } from '../services/fakeMovieService'
 import ListGroup from './common/listGroup'
@@ -65,7 +66,7 @@ class Movies extends Component {
     render() { 
         const {length: count} = this.state.movies;
         const { pageSize, currentPage, sortColumn } = this.state;
-
+        
         if (count === 0) 
             return <p>There are no movies in the database.</p>;
 
@@ -81,6 +82,9 @@ class Movies extends Component {
             />
         </div>
         <div className="col">
+        
+        <Link className='btn btn-primary' to="/movies/new" style={{marginBottom: 10 }}>New Movie</Link>
+
         <p>Showing {totalCount} movies in the database.</p>
         <MoviesTable 
             movies={movies} 
