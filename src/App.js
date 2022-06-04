@@ -10,6 +10,7 @@ import NavBar from './components/navBar';
 import LoginForm from './components/loginForm';
 import RegisterForm from './components/registerForm';
 import NewMovie from './components/movieForm';
+import ProtectedRoute from './components/common/protectedRoute';
 import Logout from './components/logout';
 import auth from './services/authService'
 import logo from './logo.svg';
@@ -25,25 +26,29 @@ class App extends Component {
  }
 
  render() {
+  const { user } = this.state
+
   return (
     <React.Fragment>
     <ToastContainer />
-    <NavBar user={this.state.user} />
+    <NavBar user={user} />
     <main className='container'>
     <Switch>
       <Route path="/register" component={RegisterForm} />
       <Route path="/login" component={LoginForm} />
       <Route path="/logout" component={Logout} />
-      <Route path="/movies/:id" component={MovieForm} />
+      <ProtectedRoute 
+        path="/movies/:id" 
+        component={MovieForm} />
       <Route path="/movies/new" component={NewMovie} />
       <Route path="/movies" 
-        render={props => <Movies {...props} user={this.state.user} /> }></Route>
+        render={props => <Movies {...props} user={user} /> }></Route>
       <Route path="/customers" component={Customers}></Route>
       <Route path="/rentals" component={Rentals}></Route>
       <Route path="/notFound" component={NotFound}></Route>
       <Redirect from="/" exact to="/movies" />
       <Redirect to="/notFound" />
-      </Switch>
+    </Switch>
     </main>
     </React.Fragment>
   );
