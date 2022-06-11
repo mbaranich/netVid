@@ -11,10 +11,9 @@
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
+- An app created to further my understanding of the MERN Stack.
+- App features CRUD functionality.
+- Includes auth for users to register, login and logout.
 
 ## Technologies Used
 - ReactJS - v17.0.2
