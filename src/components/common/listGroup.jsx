@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListGroup = ({ items, textProperty, valueProperty, onItemSelect, selectedItem }) => {
 
-    return <ul className="list-group">
+    return <ul className="list-group overflow-hidden">
         { items.map(item => (
         <li 
             onClick={() => onItemSelect(item)}  
